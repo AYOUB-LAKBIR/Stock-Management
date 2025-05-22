@@ -15,7 +15,6 @@
                 <h2>Tableau de bord</h2>
                 
             </div>
-
             @if (session('status'))
             <div class="alert alert-success">
                 {{ session('status') }}
