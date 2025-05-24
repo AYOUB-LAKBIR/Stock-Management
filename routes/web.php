@@ -9,6 +9,15 @@ use App\Http\Controllers\AuthController;
 use App\Mail\MyTestMail;
 use Illuminate\Support\Facades\Mail;
 
+//Multipe langues Routes :
+Route::get('/changeLocale/{locale}', function (string $locale) {
+    if (in_array($locale, ['en', 'es', 'fr', 'ar'])) {
+        session()->put('locale', $locale);
+     }
+    return redirect()->back();
+});
+
+
 // Authentication Routes
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
