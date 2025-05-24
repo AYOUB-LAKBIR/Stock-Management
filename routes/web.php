@@ -104,4 +104,9 @@ Route::get('/store/value', [StoreController::class, 'storeValue'])->name('store.
 Route::get('/sotre/greater_than_lind', [StoreController::class, 'storeGreater_than_lind'])->name('sotre.greater_than_lind');
 
 
-
+// la route de cookie
+Route::post("/saveCookie", [DashboardController::class, 'saveCookie'])->name("saveCookie");
+// la route de session
+Route::post("/saveSession", [DashboardController::class, 'saveSession'])->name("saveSession");
+// la route d'avatar
+Route::post("/saveAvatar", [DashboardController::class, 'saveAvatar'])->name("saveAvatar");

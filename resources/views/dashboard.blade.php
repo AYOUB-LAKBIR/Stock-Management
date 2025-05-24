@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+<div class="container">
      {{-- button logout --}}
         <form method="POST" action="{{ route('logout') }}" class="d-inline">
                         @csrf
@@ -10,21 +10,25 @@
         <div>
             <a href="{{ route('profile') }}" class="btn btn-primary me-2 float-end">Mon profil</a>
         </div>
-        <div class="dashboard-container">
+    {{-- welcome card --}}
+<div class="dashboard-container text-center">
             @if (session('status'))
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
             @endif
-            <div class="welcome-card">
+            <div class="welcome-card float-start ">
                 <h4>Bienvenue, {{ $user->name }} !</h4>
                 <p>Vous êtes maintenant connecté à votre compte.</p>
             </div>
 
-          <div class="text-center py-5">
     <h2 class="display-4 mb-4">@lang("Welcome")</h2>
     <p class="lead mb-4">@lang("Slogon")</p>
-    <div class="d-flex justify-content-center gap-3">
+</div>
+
+{{-- buttons --}}
+
+<div class="d-flex justify-content-center gap-3">
         <a href="/customers" class="btn btn-primary btn-lg shadow-sm">@lang("List of Customers")</a>
         <a href="/suppliers" class="btn btn-success btn-lg shadow-sm">{{ __("List of Suppliers") }}</a>
         <a href="{{ route('products.index') }}" class="btn btn-info btn-lg shadow-sm">{{ trans("List of Products")
@@ -60,11 +64,70 @@
         <a href="{{ route('products.countbystore') }}" class="btn btn-primary mb-3">nombre des produits par depot</a>
         <a href="{{ route('store.value') }}" class="btn btn-danger mb-3">valeur de chaque depot</a>
         <a href="{{ route('sotre.greater_than_lind') }}" class="btn btn-secondary mb-3">depots qui ont une valeur surpérieur a la valeur du depot ‘Lind-Gislason’</a>
-
     </div>
+</div>
+</div>
+<br><br>
+
+{{-- Cookie AND Session : --}}
+
+<div class="d-flex justify-content-around mb-4 ">
+    {{-- Cookie --}}
+    <div>
+
+        <div>
+            <h1 class="text-center">Cookie :</h1>
+            <h3>
+                Hello
+                @if(Cookie::has("UserName"))
+                        {{Cookie::get("UserName")}}
+                @endif
+            </h3>
+        </div>
+        <div>
+            <form method="POST" action="saveCookie">
+                @csrf
+                <label for="txtCookie">Type your name</label>
+                <input type="text" id = "txtCookie" name = "txtCookie" />
+                <button class="btn btn-outline-danger ">Save Cookie</button>
+            </form>
+        </div>
+    </div>
+    {{-- Session --}}
+    <div class="">
+        <div>
+            <h1 class="text-center">Session :</h1>
+            <h3>
+                Hello
+                @if(Session::has("SessionName"))
+                        {{Session("SessionName")}}
+                @endif
+            </h3>
+        </div>
+        <div>
+            <form method="POST" action="saveSession">
+                @csrf
+                <label for="txtSession"> Type your name </label>
+                <input type="text" id = "txSession" name = "txtSession" />
+                <button class="btn btn-outline-danger"> Save Session </button>
+            </form>
+        </div>
+    </div>
+</div>
+<br><br>
+{{-- Avatar upload --}}
+<div class="text-center">
+    <form method="POST" action="saveAvatar"  enctype="multipart/form-data" >
+        @csrf
+        <label for="avatarFile"> Choose your picture </label>
+        <input type="file" id = "avatarFile"  name = "avatarFile" />
+        <button class="btn btn-outline-primary">Save picture for your account </button>
+
+        <img style = "width:200px; border-radius:50%" src="{{"storage/avatars/".$pic}}" alt="">
+    </form>
+</div>
+
 
 
 </div>
-        </div>
-    </div>
 @endsection
