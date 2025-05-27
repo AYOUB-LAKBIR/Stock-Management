@@ -17,6 +17,17 @@
                     </svg>
                     Add New Product
                 </button>
+            {{-- Exportation et importation --}}
+            <div>
+                <a class="btn btn-warning float-end" href="{{ route('products.export') }}"><i class="fa fa-download"></i> Export Products Data</a>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                    data-bs-target="#importProductModal">
+                    <i class="fa fa-file"></i> Import
+                </button>…
+
+@include('products.partials.import-modal')
+
+            </div>
                 <a href="{{ route('dashboard') }}" class="btn btn-secondary d-flex align-items-center gap-2">
                     <svg class="bi" width="16" height="16" fill="currentColor">
                         <path fill-rule="evenodd"

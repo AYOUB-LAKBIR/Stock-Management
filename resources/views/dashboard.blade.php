@@ -21,9 +21,9 @@
                 <p>@lang('You are now connected to your account')</p>
             </div>
 <br><br><br>
-<div class="dashboard-container text-center">
+<div class="dashboard-container m-auto w-50">
     <h2 class="">@lang('Welcome')</h2>
-    <p class="lead mb-4">@lang('Slogan')</p>
+    <p class="lead mb-4 ">@lang('Slogon')</p>
 </div>
 
 {{-- buttons --}}

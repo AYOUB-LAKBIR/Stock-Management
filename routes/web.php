@@ -1,13 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\AuthController;
 use App\Mail\MyTestMail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductOrderController;
 
 //Multipe langues Routes :
 Route::get('/changeLocale/{locale}', function (string $locale) {
@@ -119,3 +122,8 @@ Route::post("/saveCookie", [DashboardController::class, 'saveCookie'])->name("sa
 Route::post("/saveSession", [DashboardController::class, 'saveSession'])->name("saveSession");
 // la route d'avatar
 Route::post("/saveAvatar", [DashboardController::class, 'saveAvatar'])->name("saveAvatar");
+
+// La route d'export:
+Route::get('products-export', [ProductController::class, 'export'])->name('products.export');
+// La route d'import
+Route::post('products-import', [ProductController::class, 'import'])->name('products.import');

@@ -10,7 +10,9 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductRequest;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProductExport;
+use App\Imports\ProductImport;
 class ProductController extends Controller
 {
     /**
@@ -146,4 +148,20 @@ class ProductController extends Controller
             ->get();
         return view('products.products_more_than_6_orders', compact('products'));
     }
+    
+    public function export()
+    {
+        return Excel::download(new ProductExport, 'products.xlsx');
+    }
+
+
+    public function import(Request $request)
+    {
+
+        Excel::import(new ProductImport, $request->file('file'));
+
+        return back()->with('success', 'Products imported successfully.');
+    }
+
+
 }
