@@ -127,3 +127,6 @@ Route::post("/saveAvatar", [DashboardController::class, 'saveAvatar'])->name("sa
 Route::get('products-export', [ProductController::class, 'export'])->name('products.export');
 // La route d'import
 Route::post('products-import', [ProductController::class, 'import'])->name('products.import');
+// la route de print pdf
+Route::get('/products/print', [ProductController::class, 'print'])->name('products.print');
+

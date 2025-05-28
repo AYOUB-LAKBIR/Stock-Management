@@ -24,16 +24,38 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $pic = $user-> avatar;
+        // Fetch categories with the count of their products
+        $categories = Category::withCount('products')->get();
+
+        // Prepare data for the category chart
+        $categoryLabels = $categories->pluck('name');
+        $productCounts = $categories->pluck('products_count');
+
+        // Fetch stores with the count of their products
+        $stores = Store::withCount('products')->get();
+
+        // Prepare data for the store chart
+        $storeLabels = $stores->pluck('name');
+        $storeCounts = $stores->pluck('products_count');
+
+        return view('dashboard', [
+            'pic' => $pic,
+            'user' => $user,
+            'categoryLabels' => $categoryLabels,
+            'productCounts' => $productCounts,
+            'storeLabels' => $storeLabels,
+            'storeCounts' => $storeCounts
+        ]);
         // dd($user);
-        return view('dashboard', compact('user','pic'));
+        // return view('dashboard', compact('user','pic'));
 
     }
 
     public function customers(): View
     {
         $customers = Customer::paginate(20);
-        return view('customers.index',compact('customers')); 
-            
+        return view('customers.index',compact('customers'));
+
     }
 
     public function suppliers(): View

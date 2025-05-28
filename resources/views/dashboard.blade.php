@@ -123,5 +123,9 @@
     </form>
 </div>
 
+
+{{-- Include the category chart partial --}}
+@include('partials._category_chart')
+@include('partials._store_chart')
 </div>
 @endsection

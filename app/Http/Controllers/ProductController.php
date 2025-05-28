@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Supplier;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\ProductRequest;
-use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Http\Request;
 use App\Exports\ProductExport;
 use App\Imports\ProductImport;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\ProductRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
+use \Mpdf\Mpdf;
+
 class ProductController extends Controller
 {
     /**
@@ -148,7 +153,7 @@ class ProductController extends Controller
             ->get();
         return view('products.products_more_than_6_orders', compact('products'));
     }
-    
+
     public function export()
     {
         return Excel::download(new ProductExport, 'products.xlsx');
@@ -161,6 +166,20 @@ class ProductController extends Controller
         Excel::import(new ProductImport, $request->file('file'));
 
         return back()->with('success', 'Products imported successfully.');
+    }
+    public function print()
+    {
+        $user = Auth::user(); // Get the authenticated user
+        $products = Product::with(['category', 'supplier', 'stock'])->get();
+        $data = [
+            'products' => $products,
+            'user' => $user // Pass the user to the view
+        ];
+
+        $mpdf = new Mpdf();
+        $html = view('products.print_pdf', $data)->render();
+        $mpdf->WriteHTML($html);
+        return $mpdf->Output('products.pdf', 'I'); // 'I' for inline display
     }
 
 
