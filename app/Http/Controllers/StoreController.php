@@ -25,8 +25,8 @@ class StoreController extends Controller
 
     public function  suppliers_products()
     {
-        $productIds = Customer::where("customers.first_name","Annabel")
-        ->where("customers.last_name","Stehr")
+        $productIds = Customer::where("customers.first_name","Antonina")
+        ->where("customers.last_name","Dibbert")
         ->join("orders","customers.id","=","orders.customer_id")
         ->join("product_orders","orders.id","=","product_orders.order_id")
         ->select("product_id")
@@ -45,8 +45,8 @@ class StoreController extends Controller
 
     public function  products_same_stores()
     {
-         $storeIds = Supplier::where("suppliers.first_name","Scottie")
-        ->where("suppliers.last_name","crona")
+         $storeIds = Supplier::where("suppliers.first_name","Bud")
+        ->where("suppliers.last_name","Hahn")
         ->join("products","suppliers.id","=","products.supplier_id")
         ->join("stocks","stocks.product_id","=","products.id")
         ->join("stores","stores.id","=","stocks.store_id")
@@ -100,7 +100,6 @@ class StoreController extends Controller
         ->join('products','stocks.product_id','products.id')
         ->selectRaw('stores.id as store_id, stores.name as store_name, SUM(price * stocks.quantity_stock) as totalV' )
         ->groupBy('stores.id','stores.name')
-        ->having('totalV','>', $value)
         ->get();
 
 

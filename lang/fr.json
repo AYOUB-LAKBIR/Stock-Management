@@ -1,4 +1,14 @@
 {
+    
+    "Hello !": "Bonjour!",
+    "Welcome to Stock Management System": "Bienvenue dans le système de gestion des stocks",
+    "test Manage your inventory and customers efficiently": "testez Gérer votre inventaire et vos clients efficacement",
+    
+    "Customers who Ordered Same Products as Antonina Dibbert": "Clients ayant commandé les mêmes produits qu'Antonina Dibbert",
+    
+    "Suppliers who delivered products ordered by Antonina Dibbert": "Fournisseurs ayant livré des produits commandés par Antonina Dibbert",
+    "Products stored in same stores as Bud Hahn products": "Produits stockés dans les mêmes magasins que les produits de Bud Hahn",
+
     "Stock Management System": "Système de Gestion de Stock",
     "Dashboard": "Tableau de Bord",
     "Welcome": "Bienvenue dans le Système de Gestion de Stock",

@@ -12,6 +12,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Str;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 
@@ -30,9 +31,9 @@ class DashboardController extends Controller
 
     public function customers(): View
     {
-        return view('customers.index', [
-            'customers' => Customer::all()
-        ]);
+        $customers = Customer::paginate(20);
+        return view('customers.index',compact('customers')); 
+            
     }
 
     public function suppliers(): View
@@ -91,8 +92,8 @@ class DashboardController extends Controller
    public function saveCookie()
    {
       $name = request()->input("txtCookie");
-      //Cookie::put("UserName",$name,6000000);
-      Cookie::queue("UserName",$name,6000000);
+      Cookie::queue("UserName",$name,6000000); // or Cookie::put("UserName",$name,6000000);
+
       return redirect()->back();
    }
 

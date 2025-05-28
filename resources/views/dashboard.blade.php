@@ -8,7 +8,7 @@
                     </form>
      {{-- Button Profil --}}
         <div>
-            <a href="{{ route('profile') }}" class="btn btn-primary me-2 float-end">@lang('My Profile')</a>
+            <a href="{{ route('profile') }}" class="btn btn-outline-success me-2 float-end">@lang('My Profile')</a>
         </div>
     {{-- welcome card --}}
     <div class="welcome-card float-start ">
@@ -27,37 +27,43 @@
 </div>
 
 {{-- buttons --}}
+<div class="border p-4 rounded shadow-sm ">
+    <div class="d-flex justify-content-center gap-3">
 
-<div class="d-flex justify-content-center gap-3">
-        <a href="/customers" class="btn btn-primary btn-lg shadow-sm">@lang('List of Customers')</a>
-        <a href="/suppliers" class="btn btn-success btn-lg shadow-sm">@lang('List of Suppliers')</a>
-        <a href="{{ route('products.index') }}" class="btn btn-info btn-lg shadow-sm">@lang('List of Products')</a>
+        <a href="/customers" class="btn btn-warning  shadow-sm">@lang('List of Customers')</a>
+        <a href="/suppliers" class="btn btn-warning btn-lg shadow-sm">@lang('List of Suppliers')</a>
+        <a href="{{ route('products.index') }}" class="btn btn-warning btn-lg shadow-sm">@lang('List of Products')</a>
         <a href="/products-by-category" class="btn btn-warning btn-lg shadow-sm">@lang('Products by Category')</a>
-        <a href="/products-by-supplier" class="btn btn-secondary btn-lg shadow-sm">@lang('Products by Supplier')</a>
-        <a href="/products-by-store" class="btn btn-dark btn-lg shadow-sm">@lang('Products by Store')</a>
-        <a href="{{ route('orders.index') }}" class="btn btn-danger btn-lg shadow-sm">@lang('Orders details by customer')</a>
+        <a href="/products-by-supplier" class="btn btn-warning btn-lg shadow-sm">@lang('Products by Supplier')</a>
+        <a href="/products-by-store" class="btn btn-warning btn-lg shadow-sm">@lang('Products by Store')</a>
+        <a href="{{ route('orders.index') }}" class="btn btn-warning btn-lg shadow-sm">@lang('Orders details by customer')</a>
     </div>
+
     <br><br>
+
     <div class="d-flex justify-content-center gap-3">
         <a href="{{ route('ordered.products') }}" class="btn btn-info mb-3">@lang('View Ordered Products')</a>
-        <a href="{{ route('same.products.customers') }}" class="btn btn-warning mb-3">@lang('Customers Who Ordered Same Products as Annabel Stehr')</a>
-        <a href="{{ route('products.orders_count') }}" class="btn btn-dark mb-3">@lang('Number of Orders per Product')</a>
-        <a href="{{ route('products.more_than_6_orders') }}" class="btn btn-primary mb-3">@lang('Products with More Than 6 Orders')</a>
-        <a href="{{ route('orders.totals') }}" class="btn btn-danger mb-3">@lang('Total Amount per Order')</a>
-        <a href="{{ route('orders.greater_than_60') }}" class="btn btn-secondary mb-3">@lang('Orders with Total Greater Than Order 60')</a>
+        <a href="{{ route('same.products.customers') }}" class="btn btn-info mb-3">@lang('Customers Who Ordered Same Products as Antonina Dibbert')</a>
+        <a href="{{ route('products.orders_count') }}" class="btn btn-info mb-3">@lang('Number of Orders per Product')</a>
+        <a href="{{ route('products.more_than_6_orders') }}" class="btn btn-info mb-3">@lang('Products with More Than 6 Orders')</a>
+        <a href="{{ route('orders.totals') }}" class="btn btn-info mb-3">@lang('Total Amount per Order')</a>
+        <a href="{{ route('orders.greater_than_60') }}" class="btn btn-info mb-3">@lang('Orders with Total Greater Than Order 60')</a>
     </div>
 
     <br><br>
+
     <div class="d-flex justify-content-center gap-3">
-        <a href="{{ route('customers.orders') }}" class="btn btn-info mb-3">@lang('Customers per Order')</a>
-        <a href="{{ route('suppliers.products') }}" class="btn btn-warning mb-3">@lang('Suppliers who delivered products ordered by Annabel Stehr')</a>
-        <a href="{{ route('products.same_stores') }}" class="btn btn-dark mb-3">@lang('Products stored in same stores as Scottie Crona products')</a>
-        <a href="{{ route('products.countbystore') }}" class="btn btn-primary mb-3">@lang('Number of products per store')</a>
-        <a href="{{ route('store.value') }}" class="btn btn-danger mb-3">@lang('Value of each store')</a>
+        <a href="{{ route('customers.orders') }}" class="btn btn-secondary mb-3">@lang('Customers per Order')</a>
+        <a href="{{ route('suppliers.products') }}" class="btn btn-secondary mb-3">@lang('Suppliers who delivered products ordered by Antonina Dibbert')</a>
+        <a href="{{ route('products.same_stores') }}" class="btn btn-secondary mb-3">@lang('Products stored in same stores as Bud Hahn products')</a>
+        <a href="{{ route('products.countbystore') }}" class="btn btn-secondary mb-3">@lang('Number of products per store')</a>
+        <a href="{{ route('store.value') }}" class="btn btn-secondary mb-3">@lang('Value of each store')</a>
         <a href="{{ route('sotre.greater_than_lind') }}" class="btn btn-secondary mb-3">@lang('Stores with value greater than Lind-Gislason')</a>
     </div>
+
+
 </div>
-</div>
+
 <br><br>
 
 {{-- Cookie AND Session : --}}

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>3 – la liste des produits stockées dans les memes depots que les produits fournis par ‘Scottie Crona’</h2>
+    <h2>3 – la liste des produits stockées dans les memes depots que les produits fournis par ‘Bud Hahn’</h2>
     <table class="table table-bordered">
         <thead>
             <tr>

@@ -51,5 +51,14 @@
     "Save Cookie": "Guardar Cookie",
     "Save Session": "Guardar Sesión",
     "Choose your picture": "Elige tu foto",
-    "Save picture for your account": "Guardar foto para tu cuenta"
+    "Save picture for your account": "Guardar foto para tu cuenta",
+    
+    "Welcome to Stock Management System": "Bienvenido al Sistema de Gestión de Inventarios",
+    "test Manage your inventory and customers efficiently": "prueba Gestiona tu inventario y clientes de manera eficiente",
+    
+    "Customers who Ordered Same Products as Antonina Dibbert": "Clientes que pidieron los mismos productos que Antonina Dibbert",
+    "Orders with Total Greater Than 60": "Pedidos con total mayor a 60",
+    "Suppliers who delivered products ordered by Antonina Dibbert": "Proveedores que entregaron productos pedidos por Antonina Dibbert",
+    "Products stored in same stores as Bud Hahn products": "Productos almacenados en las mismas tiendas que los productos de Bud Hahn"
 }
+

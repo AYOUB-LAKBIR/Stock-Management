@@ -91,6 +91,7 @@
                 <nav>
                     <ul class="pagination">
                         <!-- Previous Page Link -->
+                        
                         @if ($customers->onFirstPage())
                         <li class="page-item disabled">
                             <a class="page-link" href="#" aria-label="Previous">
