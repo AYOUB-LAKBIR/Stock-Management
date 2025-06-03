@@ -60,16 +60,15 @@ class DashboardController extends Controller
 
     public function suppliers(): View
     {
-        return view('suppliers.index', [
-            'suppliers' => Supplier::all()
-        ]);
+        $suppliers = Supplier::paginate(10);
+        return view('suppliers.index', compact('suppliers'));
     }
 
     public function products(): View
-    {
-        return view('products.index', [
-            'products' => Product::with(['category', 'supplier', 'stock'])->get()
-        ]);
+
+    {  $products = Product::with(['category', 'supplier', 'stock'])->get();
+
+        return view('products.index', compact('products'));
     }
 
     public function productsBySupplier(): View
@@ -114,7 +113,7 @@ class DashboardController extends Controller
    public function saveCookie()
    {
       $name = request()->input("txtCookie");
-      Cookie::queue("UserName",$name,6000000); // or Cookie::put("UserName",$name,6000000);
+      Cookie::queue("UserName",$name,6000000); // or Cookie::put("UserName",$name,6000000); | Crreation of a cookie that lasts 6000000 minutes
 
       return redirect()->back();
    }

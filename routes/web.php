@@ -60,6 +60,7 @@ Route::get('/testmail', function() {
 
 Route::get('/customers', [DashboardController::class, 'customers'])->name('customers.index');
 Route::get('/suppliers', [DashboardController::class, 'suppliers'])->name('suppliers.index');
+
 // Product routes
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');

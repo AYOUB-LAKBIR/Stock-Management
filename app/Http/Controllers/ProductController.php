@@ -117,6 +117,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        dd($product);
         // Delete product image if exists
         if ($product->picture) {
             Storage::disk('public')->delete($product->picture);
@@ -177,9 +178,9 @@ class ProductController extends Controller
         ];
 
         $mpdf = new Mpdf();
-        $html = view('products.print_pdf', $data)->render();
-        $mpdf->WriteHTML($html);
-        return $mpdf->Output('products.pdf', 'I'); // 'I' for inline display
+        $html = view('products.print_pdf', $data)->render(); // génère du contenu HTML à partir d'une vue
+        $mpdf->WriteHTML($html);   //écrire le contenu HTML dans le PDF
+        return $mpdf->Output('products.pdf', 'I'); // 'I' for inline display | génère et renvoie le PDF au client (le navigateur)
     }
 
 

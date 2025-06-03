@@ -43,14 +43,6 @@
 @include('products.partials.import-modal')
 
             </div>
-
-                {{-- <a href="{{ route('dashboard') }}" class="btn btn-secondary d-flex align-items-center gap-2">
-                    <svg class="bi" width="16" height="16" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
-                    </svg>
-                    Back to Dashboard
-                </a> --}}
             </div>
         </div>
     </div>
@@ -113,7 +105,7 @@
                                             <path fill-rule="evenodd"
                                                 d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                         </svg>
-                                        
+
                                     </button>
                                     <button type="button" class="btn btn-sm btn-outline-danger delete-product"
                                         data-id="{{ $product->id }}" data-name="{{ $product->name }}"

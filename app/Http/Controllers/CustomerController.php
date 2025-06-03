@@ -34,16 +34,16 @@ class CustomerController extends Controller
         }
 
     /**
-     * Show customers who ordered the same products as Annabel Stehr.
+     * Show customers who ordered the same products as Golda Cremin .
      */
     public function sameProductsCustomers()
     {
-        // Find the customer Annabel Stehr
-        $customer =Customer::whereRaw("CONCAT(first_name, ' ', last_name) = ?", ['Annabel Stehr'])->first();
+        // Find the customer Golda Cremin 
+        $customer =Customer::whereRaw("CONCAT(first_name, ' ', last_name) = ?", ['Golda Cremin'])->first();
         if (!$customer) {
             return view('customers.same_products_customers', ['customers' => collect()]);
         }
-        // Get product IDs ordered by Annabel Stehr
+        // Get product IDs ordered by Golda Cremin 
         $productIds = Order::join('product_orders', 'orders.id', '=', 'product_orders.order_id')
             ->where('orders.customer_id', $customer->id)
           ->pluck('product_orders.product_id');
@@ -77,12 +77,7 @@ class CustomerController extends Controller
 
         // The request is automatically validated by the CustomerRequest class
         Customer::create($request->validated());
-        // $customer = new Customer();
-        // $customer->first_name = $request["first_name"];
-        // $customer->last_name = $request["last_name"];
-        // $customer->phone = $request["phone"];
-        // $customer->address = $request["address"];
-        // $customer->save();
+        // Redirect to the customers index with a success message
         return redirect()->route('customers.index')
             ->with('success', 'Customer created successfully.');
         }

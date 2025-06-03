@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>2 – afficher la listes des founisseurs qui ont livré les produits commandé par ‘Antonina Dibbert’</h2>
+    <h2>2 – afficher la listes des founisseurs qui ont livré les produits commandé par "Golda Cremin"</h2>
     <table class="table table-bordered">
         <thead>
             <tr>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Clients ayant commandé les mêmes produits que Antonina Dibbert</h2>
+    <h2>Clients ayant commandé les mêmes produits que Golda Cremin </h2>
     <table class="table table-bordered">
         <thead>
             <tr>

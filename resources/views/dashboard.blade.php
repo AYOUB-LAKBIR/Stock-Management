@@ -43,7 +43,7 @@
 
     <div class="d-flex justify-content-center gap-3">
         <a href="{{ route('ordered.products') }}" class="btn btn-info mb-3">@lang('View Ordered Products')</a>
-        <a href="{{ route('same.products.customers') }}" class="btn btn-info mb-3">@lang('Customers Who Ordered Same Products as Antonina Dibbert')</a>
+        <a href="{{ route('same.products.customers') }}" class="btn btn-info mb-3">@lang('Customers Who Ordered Same Products as Golda Cremin')</a>
         <a href="{{ route('products.orders_count') }}" class="btn btn-info mb-3">@lang('Number of Orders per Product')</a>
         <a href="{{ route('products.more_than_6_orders') }}" class="btn btn-info mb-3">@lang('Products with More Than 6 Orders')</a>
         <a href="{{ route('orders.totals') }}" class="btn btn-info mb-3">@lang('Total Amount per Order')</a>
@@ -54,7 +54,7 @@
 
     <div class="d-flex justify-content-center gap-3">
         <a href="{{ route('customers.orders') }}" class="btn btn-secondary mb-3">@lang('Customers per Order')</a>
-        <a href="{{ route('suppliers.products') }}" class="btn btn-secondary mb-3">@lang('Suppliers who delivered products ordered by Antonina Dibbert')</a>
+        <a href="{{ route('suppliers.products') }}" class="btn btn-secondary mb-3">@lang('Suppliers who delivered products ordered by Golda Cremin ')</a>
         <a href="{{ route('products.same_stores') }}" class="btn btn-secondary mb-3">@lang('Products stored in same stores as Bud Hahn products')</a>
         <a href="{{ route('products.countbystore') }}" class="btn btn-secondary mb-3">@lang('Number of products per store')</a>
         <a href="{{ route('store.value') }}" class="btn btn-secondary mb-3">@lang('Value of each store')</a>

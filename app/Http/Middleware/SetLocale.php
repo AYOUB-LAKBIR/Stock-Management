@@ -18,14 +18,14 @@ class SetLocale
     public function handle($request, Closure $next)
     {
         $locale = session('locale');
-        Log::info('Current session locale: ' . ($locale ?? 'not set'));
+        // Log::info('Current session locale: ' . ($locale ?? 'not set'));
 
         if ($locale && in_array($locale, ['en', 'es', 'fr', 'ar'])) {
             App::setLocale($locale);
-            Log::info('Locale set to: ' . App::getLocale());
+            // Log::info('Locale set to: ' . App::getLocale());
         } else {
             App::setLocale(config('app.locale'));
-            Log::info('Using default locale: ' . App::getLocale());
+            // Log::info('Using default locale: ' . App::getLocale());
         }
 
         return $next($request);

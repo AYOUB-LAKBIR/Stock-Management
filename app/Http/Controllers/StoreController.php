@@ -15,7 +15,7 @@ class StoreController extends Controller
     public function  customers_orders()
     {
         $orders = Order::join("customers","orders.customer_id","=","customers.id")
-        ->select(DB::raw("concat(customers.first_name, ' ', customers.last_name) as customer_name"),"orders.id as order_id", "orders.order_date as order_date")
+        ->selectRaw("concat(customers.first_name, ' ', customers.last_name) as customer_name, orders.id as order_id, orders.order_date as order_date")
         ->get();
 
 
@@ -25,8 +25,8 @@ class StoreController extends Controller
 
     public function  suppliers_products()
     {
-        $productIds = Customer::where("customers.first_name","Antonina")
-        ->where("customers.last_name","Dibbert")
+        $productIds = Customer::where("customers.first_name","Golda")
+        ->where("customers.last_name","Cremin")
         ->join("orders","customers.id","=","orders.customer_id")
         ->join("product_orders","orders.id","=","product_orders.order_id")
         ->select("product_id")

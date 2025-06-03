@@ -13,13 +13,6 @@
                     </svg>
                 Add New Customer
             </a>
-            {{-- <a href="{{ route('dashboard') }}" class="btn btn-secondary d-flex align-items-center gap-2 ms-2">
-                <svg class="bi" width="16" height="16" fill="currentColor">
-                    <path fill-rule="evenodd"
-                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
-                </svg>
-                Back to Dashboard
-            </a> --}}
 
         </div>
     </div>
@@ -64,7 +57,7 @@
                                             <path fill-rule="evenodd"
                                                 d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                         </svg>
-                                        
+
                                     </a>
                                     <a href="{{ route('customers.delete', $customer) }}" class="btn btn-sm btn-outline-danger">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -84,49 +77,9 @@
             </div>
 
             <!-- Pagination Links -->
-            <div class="pagination d-flex justify-content-center mt-4">
-                <nav>
-                    <ul class="pagination">
-                        <!-- Previous Page Link -->
-                        
-                        @if ($customers->onFirstPage())
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        @else
-                        <li class="page-item">
-                            <a class="page-link" href="{{ $customers->previousPageUrl() }}" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        @endif
-
-                        <!-- Pagination Elements -->
-                            @for ($i = 1; $i <= $customers->lastPage(); $i++)
-                                <li class="page-item {{ ($customers->currentPage() == $i) ? 'active' : '' }}">
-                                    <a class="page-link" href="{{ $customers->url($i) }}">{{ $i }}</a>
-                                </li>
-                            @endfor
-
-                            <!-- Next Page Link -->
-                            @if ($customers->hasMorePages())
-                            <li class="page-item">
-                                <a class="page-link" href="{{ $customers->nextPageUrl() }}" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                            @else
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                            @endif
-                    </ul>
-                </nav>
-            </div>
+                            <div class=" text-center mt-4">
+                                {{ $customers->links() }}
+                            </div>
         </div>
     </div>
 </div>
@@ -134,8 +87,8 @@
 @push('scripts')
 <script>
     $(document).ready(function() {
-        $('#customerSearch').on('keyup', function(e) {
-           // if (e.which === 13) { // Enter key
+        $('#customerSearch').on('keypress', function(e) {
+           if (e.which === 13) { // Enter key
                 var searchTerm = $(this).val();
 
                 if(searchTerm.length > 0) {
@@ -203,7 +156,7 @@
                     // If search field is empty, reload the original data with pagination
                     window.location.href = '{{ route("customers.index") }}';
                 }
-           // }
+           }
     });
 
     // Function to update pagination based on response data
